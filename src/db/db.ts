@@ -13,13 +13,13 @@ const {
 } = process.env;
 
 if (!DB_NAME || !DB_USER || !DB_PASSWORD || !DB_HOST || !DB_DIALECT || !DB_PORT) {
-  throw new Error('Missing one or more required environment variables');
+  throw new Error('');
 }
 
 const validDialects: Dialect[] = ['mysql', 'postgres', 'sqlite', 'mariadb', 'mssql'];
 
 if (!validDialects.includes(DB_DIALECT as Dialect)) {
-  throw new Error(`Invalid DB_DIALECT: ${DB_DIALECT}`);
+  throw new Error(`${DB_DIALECT}`);
 }
 
 const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
