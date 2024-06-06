@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Tarefa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        
+        input[type="submit"], input[type="button"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-right: 10px; /* Adicionando margem entre os botões */
+        }
+        
+        input[type="submit"]:hover, input[type="button"]:hover {
+            background-color: #45a049;
+        }
+
+        .btn-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form action="/tasks/updatestatus" method="post">
+        <h2>Editar Tarefa</h2>
+        
+       <input type="hidden" name="id" value="{{task.id}}">
+        
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" value="{{task.nome}}" required>
+
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao" name="descricao" value="{{task.descricao}}" required>
+
+        <label for="prioridade">Prioridade:</label>
+        <select id="prioridade" name="prioridade">
+            {{#prioridade_baixa}}
+            <option value="baixa" selected>Baixa</option>
+            {{/prioridade_baixa}}
+            {{^prioridade_baixa}}
+            <option value="baixa">Baixa</option>
+            {{/prioridade_baixa}}
+
+            {{#prioridade_media}}
+            <option value="media" selected>Média</option>
+            {{/prioridade_media}}
+            {{^prioridade_media}}
+            <option value="media">Média</option>
+            {{/prioridade_media}}
+
+            {{#prioridade_alta}}
+            <option value="alta" selected>Alta</option>
+            {{/prioridade_alta}}
+            {{^prioridade_alta}}
+            <option value="alta">Alta</option>
+            {{/prioridade_alta}}
+        </select>
+
+        <label for="finalizada">Finalizada:</label>
+        {{#task.finalizada}}
+        <input type="checkbox" id="finalizada" name="finalizada" checked>
+        {{/task.finalizada}}
+        {{^task.finalizada}}
+        <input type="checkbox" id="finalizada" name="finalizada">
+        {{/task.finalizada}}
+
+        <div class="btn-container">
+            <input type="submit" value="Enviar">
+            <input type="button" value="Voltar" onclick="history.back()">
+        </div>
+    </form>
+</body>
+</html>

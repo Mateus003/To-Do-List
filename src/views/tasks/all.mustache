@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .task {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        .task:hover {
+            background-color: #e9e9e9;
+        }
+        .task .name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .task .priority {
+            font-size: 14px;
+            color: #777;
+        }
+        .task .finished {
+            font-size: 14px;
+            color: #777;
+        }
+        .task .description {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .task.open .description {
+            display: block;
+        }
+        .task .actions {
+            margin-top: 10px;
+        }
+        .btn {
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Tarefas</h1>
+        <!-- Renderização das tarefas -->
+        {{#tasks}}
+        <div class="task">
+            <div class="name">{{nome}}</div>
+            <div class="priority">Prioridade: {{prioridade}}</div>
+            <div class="finished">Finalizada: {{#finalizada}}Sim{{/finalizada}}{{^finalizada}}Não{{/finalizada}}</div>
+            <div class="description">{{descricao}}</div>
+            <div class="actions">
+                <button class="btn" onclick="toggleDescription(this)">Ver Descrição</button>
+                <button class="btn" onclick="editTask('{{id}}')">Editar</button> 
+                <form action="/tasks/delete/{{id}}" method="POST" style="display:inline;">
+                    <button type="submit" class="btn">Excluir</button>
+                </form>
+            </div>
+        </div>
+        {{/tasks}}
+        <!-- Botão para redirecionar para a Tela de Cadastro de Tarefa -->
+        <div class="actions">
+            <button class="btn" onclick="location.href='/tasks/add'">Cadastrar Tarefa</button>
+        </div>
+    </div>
+
+    <script>
+        // Função para alternar a exibição da descrição da tarefa
+        function toggleDescription(button) {
+            var task = button.parentNode.parentNode;
+            task.classList.toggle("open");
+        }
+
+        function editTask(id) {
+            if (finalizada === "Sim") {
+            alert("Esta tarefa já foi finalizada e não pode ser editada.");
+        } else {
+            window.location.href = '/tasks/edit/' + id;
+        }
+        }
+    </script>
+</body>
+</html>
