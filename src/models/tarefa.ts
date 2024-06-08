@@ -33,6 +33,11 @@ Tarefa.init({
     type: DataTypes.ENUM('Baixa', 'Média', 'Alta'),
     allowNull: false,
     defaultValue: 'Baixa'
+  },
+  membroId: {
+    type: DataTypes.UUID,
+    allowNull: true,
+    onDelete: 'CASCADE'
   }
 }, {
   sequelize,
