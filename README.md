@@ -1,6 +1,6 @@
 # 📝 To Do List
 
-Este é um aplicativo web desenvolvido para gerenciar suas tarefas diárias. Com o To Do List, os usuários podem fazer login, cadastrar membros, criar e editar tarefas, além de visualizar uma descrição completa da plataforma.
+Este é um aplicativo web desenvolvido para gerenciar suas tarefas diárias. Com o To Do List, os usuários podem fazer login, cadastrar membros, criar e editar tarefas, além de visualizar uma descrição completa da tarefa.
 
 ## 👨🏽‍💻 Autor
 
@@ -12,6 +12,7 @@ Este projeto foi desenvolvido por [Mateus da Silva]([https://github.com/seu-usua
 - **Cadastro de Membros**: É possível cadastrar novos membros para compartilhar tarefas e colaborar.
 - **Cadastro de Tarefas**: Os usuários podem criar novas tarefas e atribuir a elas detalhes como título, descrição e prazo.
 - **Edição de Tarefas**: As tarefas podem ser editadas para ajustar detalhes ou alterar o status.
+-  **Exclusão de Tarefas**: As tarefas podem ser excluidas.
 - **Descrição da Plataforma**: Os usuários podem ler uma descrição detalhada sobre o funcionamento do To Do List.
 
 ## 🎯 Tecnologias Utilizadas
