@@ -4,7 +4,6 @@ import MemberController from '../controller/memberController';
 
 const router = express.Router();
 
-
 router.get('/register', MemberController.createMember);
 router.post('/register', MemberController.createMemberSave);
 
