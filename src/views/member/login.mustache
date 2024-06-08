@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f2f1;
+            background-image: url('images/todo.jpg');
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        
+        input[type="submit"], input[type="button"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 10px 0; 
+            width: 100%;
+        }
+        
+        input[type="submit"]:hover, input[type="button"]:hover {
+            background-color: #45a049;
+        }
+
+        .btn-container {
+            text-align: center;
+        }
+
+        .signup-link {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #4caf50;
+            text-decoration: none;
+        }
+
+        .signup-link:hover {
+            color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form action="/member/home" method="GET">
+        <h2>Login</h2>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
+
+        <div class="btn-container">
+            <input type="submit" value="Entrar">
+        </div>
+
+        <a href="/member/register" class="signup-link">Realizar cadastro</a>
+    </form>
+</body>
+</html>
