@@ -9,11 +9,11 @@ Este projeto foi desenvolvido por [Mateus da Silva]([https://github.com/seu-usua
 ## Funcionalidades Principais
 
 - **Login**: Os usuários podem fazer login na plataforma para acessar suas tarefas.
-- **Cadastro de Membros**: É possível cadastrar novos membros para compartilhar tarefas e colaborar.
-- **Cadastro de Tarefas**: Os usuários podem criar novas tarefas e atribuir a elas detalhes como título, descrição e prazo.
+- **Cadastro de Membros**: É possível cadastrar novos membros .
+- **Cadastro de Tarefas**: Os usuários podem criar novas tarefas e atribuir a elas detalhes como título, descrição e prioridade.
 - **Edição de Tarefas**: As tarefas podem ser editadas para ajustar detalhes ou alterar o status.
 -  **Exclusão de Tarefas**: As tarefas podem ser excluidas.
-- **Descrição da Plataforma**: Os usuários podem ler uma descrição detalhada sobre o funcionamento do To Do List.
+- **Descrição da Tarefas**: Os usuários podem ler a descrição das tarefas cadastradas.
 
 ## 🎯 Tecnologias Utilizadas
 
