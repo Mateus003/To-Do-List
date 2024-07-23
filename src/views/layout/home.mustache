@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f2f1;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .menu-item {
+            margin: 15px 0; 
+        }
+        
+        .menu-item a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 20px;
+            border: 1px solid #4caf50;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        
+        .menu-item a:hover {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        .welcome-text {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="welcome-text">Bem-vindo(a)!</h2> 
+        <div class="menu">
+            <div class="menu-item">
+                <a href="/tasks">Listagem de Tarefas</a>
+            </div>
+            <div class="menu-item">
+                <a href="/member/register">Cadastro de Membros</a>
+            </div>
+            <div class="menu-item">
+                <a href="/member/login">Sair</a> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>

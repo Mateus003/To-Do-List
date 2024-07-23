@@ -16,7 +16,7 @@ if (!DB_NAME || !DB_USER || !DB_PASSWORD || !DB_HOST || !DB_DIALECT || !DB_PORT)
   throw new Error('');
 }
 
-const validDialects: Dialect[] = ['mysql', 'postgres', 'sqlite', 'mariadb', 'mssql'];
+const validDialects: Dialect[] = ['mysql'];
 
 if (!validDialects.includes(DB_DIALECT as Dialect)) {
   throw new Error(`${DB_DIALECT}`);

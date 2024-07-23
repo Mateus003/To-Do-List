@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar Tarefa</title>
+    <title>Cadastro</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -34,7 +34,7 @@
             font-weight: bold;
         }
         
-        input[type="text"], select {
+        input[type="text"], input[type="email"], input[type="password"] {
             width: 100%;
             padding: 10px;
             margin: 5px 0;
@@ -60,29 +60,42 @@
         .btn-container {
             text-align: center;
         }
+
+        .back-button {
+            background-color: #4caf50; 
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
     <form action="#" method="post">
-        <h2>Criar Tarefa</h2>
+        <h2>Cadastro de membro</h2>
         
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
+        <input type="text" id="nome" name="nome" minlength="5" maxlength="255" required>
 
-        <label for="descricao">Descrição:</label>
-        <input type="text" id="descricao" name="descricao" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
 
-        <label for="prioridade">Prioridade:</label>
-        <select id="prioridade" name="prioridade">
-            <option value="baixa">Baixa</option>
-            <option value="media">Média</option>
-            <option value="alta">Alta</option>
-        </select>
+        <label for="senha">Senha:</label>
+        <div style="position: relative;">
+            <input type="password" id="senha" name="senha" required>
+
+        </div>
 
         <div class="btn-container">
-            <input type="submit" value="Enviar">
-            <input type="button" value="Voltar" onclick="history.back()">
+            <button class="back-button" onclick="history.back()">Voltar</button>
+            <input type="submit" value="Enviar"> 
         </div>
     </form>
+
+    <script>
+        
+    </script>
 </body>
 </html>

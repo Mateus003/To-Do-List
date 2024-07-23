@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tarefas</title>
     <style>
-        /* Estilos CSS */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #e0f2f1;
         }
         .container {
             max-width: 800px;
@@ -64,23 +63,32 @@
         }
         .btn {
             padding: 8px 15px;
-            background-color: #007bff;
-            color: #fff;
+            background-color: #4caf50;
+            color: white;
             border: none;
             border-radius: 3px;
             cursor: pointer;
         }
         .btn:hover {
-            background-color: #0056b3;
+            background-color: #45a049;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn-delete {
+            background-color: #f44336;
+        }
+        .btn-delete:hover {
+            background-color: #d32f2f;
         }
     </style>
 </head>
-<body>
+    <body>
     <div class="container">
         <h1>Lista de Tarefas</h1>
-        <!-- Renderização das tarefas -->
         {{#tasks}}
-        <div class="task">
+        <div class="task" data-task-id="{{id}}">
             <div class="name">{{nome}}</div>
             <div class="priority">Prioridade: {{prioridade}}</div>
             <div class="finished">Finalizada: {{#finalizada}}Sim{{/finalizada}}{{^finalizada}}Não{{/finalizada}}</div>
@@ -88,32 +96,48 @@
             <div class="actions">
                 <button class="btn" onclick="toggleDescription(this)">Ver Descrição</button>
                 <button class="btn" onclick="editTask('{{id}}')">Editar</button> 
-                <form action="/tasks/delete/{{id}}" method="POST" style="display:inline;">
-                    <button type="submit" class="btn">Excluir</button>
-                </form>
+                <button class="btn btn-delete" onclick="deleteTask('{{id}}')">Excluir</button>
             </div>
         </div>
         {{/tasks}}
-        <!-- Botão para redirecionar para a Tela de Cadastro de Tarefa -->
-        <div class="actions">
+        <div class="button-container">
+            <button class="btn" onclick="location.href='/member/home'">Voltar</button>
             <button class="btn" onclick="location.href='/tasks/add'">Cadastrar Tarefa</button>
         </div>
     </div>
 
     <script>
-        // Função para alternar a exibição da descrição da tarefa
         function toggleDescription(button) {
             var task = button.parentNode.parentNode;
             task.classList.toggle("open");
         }
 
         function editTask(id) {
-            if (finalizada === "Sim") {
-            alert("Esta tarefa já foi finalizada e não pode ser editada.");
-        } else {
             window.location.href = '/tasks/edit/' + id;
         }
+
+        async function deleteTask(id) {
+                try {
+                    const response = await fetch(`/tasks/delete/${id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    if (response.ok) {
+                        // Remove o elemento da tarefa do DOM
+                        const taskElement = document.querySelector(`[data-task-id="${id}"]`);
+                        if (taskElement) {
+                            taskElement.remove();
+                        }
+                    } else {
+                        alert('Erro ao excluir a tarefa');
+                    }
+                } catch (error) {
+                    console.error('Erro ao tentar excluir a tarefa:', error);
+                }
         }
     </script>
 </body>
+
 </html>
