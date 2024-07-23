@@ -11,5 +11,5 @@ router.post('/register', MemberController.createMemberSave);
 
 router.get('/login', MemberController.login);
 router.post('/login', MemberController.loginSave); 
-router.get('/home', authenticateJWT,MemberController.home); 
+router.get('/home',MemberController.home); 
 export default router;
