@@ -38,4 +38,4 @@ Para mais detalhes sobre a implementação e uso do To Do List, consulte a [docu
 3. Execute `npm install` para instalar as dependências.
 4. Configure o banco de dados MySQL de acordo com as instruções do Sequelize.
 5. Execute `npm start-dev` para iniciar o servidor.
-6. Acesse `http://localhost:3000` em seu navegador para utilizar o To Do List.
+6. Acesse `http://localhost:3001` em seu navegador para utilizar o To Do List.
