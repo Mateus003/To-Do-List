@@ -2,6 +2,7 @@ import express, { Application } from 'express';
 import mustacheExpress from 'mustache-express';
 import path from 'path';
 import bodyParser from 'body-parser';
+
 const app: Application = express();
 
 import db from '../src/db/db'; 
@@ -25,6 +26,7 @@ app.use(
 
 app.use(express.json());
 app.use(bodyParser.urlencoded())
+
 app.use('/member', memberRoutes);
 app.use('/tasks', tasksRoutes);
 

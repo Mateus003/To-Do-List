@@ -126,6 +126,7 @@
                     });
                     if (response.ok) {
                         // Remove o elemento da tarefa do DOM
+
                         const taskElement = document.querySelector(`[data-task-id="${id}"]`);
                         if (taskElement) {
                             taskElement.remove();

@@ -11,6 +11,7 @@ class Membro extends Model {
   public async checkPassword(senha: string): Promise<boolean> {
     return bcrypt.compare(senha, this.senha);
   }
+
 }
 
 Membro.init(
@@ -61,6 +62,28 @@ Membro.init(
         }
       },
     },
+
+      },
+    },
+    nome: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [5, 255],
+      },
+    },
+    senha: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [3, 255], 
+      },
+    },
+  },
+  {
+    sequelize,
+    modelName: 'Membro',
+    tableName: 'membros',
   }
 );
 

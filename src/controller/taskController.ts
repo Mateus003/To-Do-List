@@ -16,6 +16,7 @@ class TaskController {
       res.redirect(`/tasks`);
     } catch (err) {
       console.error(err);
+
       res.status(500).send('Erro ao criar a tarefa');
     }
   }
@@ -32,6 +33,7 @@ class TaskController {
       }
     } catch (err) {
       console.error(err);
+
       res.status(500).send('Erro interno do servidor');
     }
   }
@@ -50,6 +52,7 @@ class TaskController {
     } catch (err) {
       console.error(err);
       res.status(500).send('Internal Server Error');
+
     }
   }
 
@@ -59,6 +62,7 @@ class TaskController {
       res.render('tasks/all', { tasks });
     } catch (err) {
       console.error(err);
+
       res.status(500).send('Erro ao exibir as tarefas');
     }
   }
@@ -76,6 +80,7 @@ static async deleteTask(req: Request, res: Response): Promise<Response> {
       return res.status(200).send('Tarefa excluída com sucesso');
   } catch (err) {
       console.error(err);
+
       return res.status(500).send('Erro ao excluir a tarefa');
   }
 }
@@ -98,11 +103,11 @@ static async deleteTask(req: Request, res: Response): Promise<Response> {
         res.redirect('/tasks');
     } catch (err) {
         console.error(err);
+
         res.status(500).send('Erro ao atualizar a tarefa');
     }
   }
 
-  
 }
 
 export default TaskController;
