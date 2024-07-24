@@ -17,13 +17,15 @@ Este projeto foi desenvolvido por [Mateus da Silva]([https://github.com/seu-usua
 
 ## 🎯 Tecnologias Utilizadas
 
-![Node.js](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![Mustache](https://img.shields.io/badge/mustache-%23F05032.svg?style=for-the-badge&logo=mustache&logoColor=white) ![Sequelize](https://img.shields.io/badge/sequelize-%23121011.svg?style=for-the-badge&logo=sequelize&logoColor=#52B0E7) ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
+![Node.js](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![Mustache](https://img.shields.io/badge/mustache-%23F05032.svg?style=for-the-badge&logo=mustache&logoColor=white) ![Sequelize](https://img.shields.io/badge/sequelize-%23121011.svg?style=for-the-badge&logo=sequelize&logoColor=#52B0E7) ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-%23000000.svg?style=for-the-badge&logo=json-web-tokens&logoColor=white)
+
 
 - **Node.js**: Plataforma para execução de código JavaScript no servidor.
 - **TypeScript**: Linguagem de programação que adiciona tipagem estática ao JavaScript.
 - **Mustache**: Sistema de lógica de template para renderizar dados em HTML.
 - **Sequelize**: ORM (Object-Relational Mapping) para Node.js, utilizado para interação com o banco de dados.
 - **MySQL**: Banco de dados relacional para armazenamento dos dados.
+- **JWT**: Token  usado para autenticação.
 
 ## 📄 Documentação
 
