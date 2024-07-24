@@ -13,7 +13,7 @@ const {
 } = process.env;
 
 if (!DB_NAME || !DB_USER || !DB_PASSWORD || !DB_HOST || !DB_DIALECT || !DB_PORT) {
-  throw new Error('');
+  throw new Error('Variável de ambiente não configurada');
 }
 
 const validDialects: Dialect[] = ['mysql'];
