@@ -125,13 +125,17 @@
                         }
                     });
                     if (response.ok) {
+                        // Remove o elemento da tarefa do DOM
+
                         const taskElement = document.querySelector(`[data-task-id="${id}"]`);
                         if (taskElement) {
                             taskElement.remove();
                         }
-                    } 
+                    } else {
+                        alert('Erro ao excluir a tarefa');
+                    }
                 } catch (error) {
-                    console.error(error);
+                    console.error('Erro ao tentar excluir a tarefa:', error);
                 }
         }
     </script>

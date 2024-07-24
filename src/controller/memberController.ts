@@ -1,5 +1,8 @@
 import { Request, Response } from 'express';
-import Member from '../models/membro';
+import jwt from 'jsonwebtoken';
+import Membro from '../models/membro';
+import { jwtSecret, jwtExpiresIn } from '../utils/config';
+
 
 class MemberController {
   static createMember(req: Request, res: Response): void {
@@ -8,24 +11,8 @@ class MemberController {
 
   static async createMemberSave(req: Request, res: Response): Promise<void> {
     const { nome, email, senha } = req.body;
-
-    if (!nome || nome.length < 5 || nome.length > 255) {
-      res.status(400).send('Nome deve ter entre 5 e 255 caracteres');
-      return;
-    }
-
-    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
-      res.status(400).send('Email inválido');
-      return;
-    }
-
-    if (!senha || senha.length < 3) {
-      res.status(400).send('Senha deve ter no mínimo 3 caracteres');
-      return;
-    }
-
     try {
-      await Member.create({ nome, email, senha });
+      await Membro.create({ nome, email, senha });
 
       res.redirect(`/member/home`);
     } catch (err) {
@@ -38,21 +25,28 @@ class MemberController {
   }
 
   static async loginSave(req: Request, res: Response): Promise<void> {
-    const { email, password } = req.body;
-    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
-      res.status(400).send('Email inválido');
-      return;
-    }
-
+    const { email, senha } = req.body;
+    
     try {
-      const member = await Member.findOne({ where: { email, senha:password } });
+      const membro = await Membro.findOne({ where: { email } });
 
-      if (!member) {
+      if (!membro) {
+
         res.status(401).send('Email não encontrado');
         return;
       }
 
-      res.redirect(`/member/home`);
+      const match = await membro.checkPassword(senha);
+
+      if (!match) {
+        res.status(401).send('Senha incorreta');
+        return;
+      }
+
+      const token = jwt.sign({ id: membro.id, email: membro.email }, jwtSecret, { expiresIn: jwtExpiresIn });
+
+      res.json({ token });
+
     } catch (err) {
       res.status(500).send('Erro ao fazer login');
     }

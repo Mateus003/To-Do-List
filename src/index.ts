@@ -1,6 +1,7 @@
 import express, { Application } from 'express';
-const mustacheExpress = require('mustache-express');
-const path = require('path');
+import mustacheExpress from 'mustache-express';
+import path from 'path';
+import bodyParser from 'body-parser';
 
 const app: Application = express();
 
@@ -24,6 +25,7 @@ app.use(
 );
 
 app.use(express.json());
+app.use(bodyParser.urlencoded())
 
 app.use('/member', memberRoutes);
 app.use('/tasks', tasksRoutes);
@@ -31,7 +33,6 @@ app.use('/tasks', tasksRoutes);
 
 db.sync()
   .then(() => {
-    app.listen(3000, () => {
-    });
+    app.listen(process.env.PORT)
   })
   .catch((err: Error) => console.log(err));

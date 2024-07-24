@@ -15,6 +15,8 @@ class TaskController {
       await Tarefa.create(tarefa);
       res.redirect(`/tasks`);
     } catch (err) {
+      console.error(err);
+
       res.status(500).send('Erro ao criar a tarefa');
     }
   }
@@ -30,6 +32,8 @@ class TaskController {
         res.status(404).send('Tarefa não encontrada');
       }
     } catch (err) {
+      console.error(err);
+
       res.status(500).send('Erro interno do servidor');
     }
   }
@@ -46,6 +50,9 @@ class TaskController {
       await Tarefa.update(tarefa, { where: { id: id } });
       res.redirect('/tasks');
     } catch (err) {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+
     }
   }
 
@@ -54,6 +61,8 @@ class TaskController {
       const tasks = await Tarefa.findAll({ raw: true });
       res.render('tasks/all', { tasks });
     } catch (err) {
+      console.error(err);
+
       res.status(500).send('Erro ao exibir as tarefas');
     }
   }
@@ -70,6 +79,8 @@ static async deleteTask(req: Request, res: Response): Promise<Response> {
       await Tarefa.destroy({ where: { id: id } });
       return res.status(200).send('Tarefa excluída com sucesso');
   } catch (err) {
+      console.error(err);
+
       return res.status(500).send('Erro ao excluir a tarefa');
   }
 }
@@ -91,11 +102,12 @@ static async deleteTask(req: Request, res: Response): Promise<Response> {
         }, { where: { id: id } });
         res.redirect('/tasks');
     } catch (err) {
+        console.error(err);
+
         res.status(500).send('Erro ao atualizar a tarefa');
     }
   }
 
-  
 }
 
 export default TaskController;
