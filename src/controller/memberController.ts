@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import Membro from '../models/membro';
 import { jwtSecret, jwtExpiresIn } from '../utils/config';
 
+
 class MemberController {
   static createMember(req: Request, res: Response): void {
     res.render('member/register');
@@ -30,6 +31,7 @@ class MemberController {
       const membro = await Membro.findOne({ where: { email } });
 
       if (!membro) {
+
         res.status(401).send('Email não encontrado');
         return;
       }
@@ -44,6 +46,7 @@ class MemberController {
       const token = jwt.sign({ id: membro.id, email: membro.email }, jwtSecret, { expiresIn: jwtExpiresIn });
 
       res.json({ token });
+
     } catch (err) {
       res.status(500).send('Erro ao fazer login');
     }
